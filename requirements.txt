@@ -1,0 +1,27 @@
+# Reporter Database Updater - Python Dependencies
+
+# Core dependencies
+python-dotenv>=1.0.0          # Environment variable management
+requests>=2.31.0              # HTTP requests
+
+# Web scraping
+crawl4ai>=0.2.0               # AI-powered web crawler
+beautifulsoup4>=4.12.0        # HTML parsing
+lxml>=4.9.0                   # XML/HTML parser
+
+# LLM Integration
+openai>=1.12.0                # OpenAI-compatible API client (works with Grok)
+
+# Google Search
+google-api-python-client>=2.100.0  # Google Custom Search API
+
+# Data processing
+pandas>=2.0.0                 # CSV handling and data manipulation
+
+# Utilities
+tqdm>=4.66.0                  # Progress bars
+colorama>=0.4.6               # Colored terminal output
+
+# Web UI
+streamlit>=1.28.0             # Web interface
+plotly>=5.17.0                # Interactive charts
