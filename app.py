@@ -272,12 +272,13 @@ with st.sidebar:
         st.error(f"Error: {e}")
 
 # Main content - Enhanced tabs
-tab1, tab2, tab3, tab4, tab5 = st.tabs([
+tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs([
     "🚀 Process",
     "📋 Review Queue",
     "📊 Statistics",
     "🗄️ View Database",
-    "📝 Change History"
+    "📝 Change History",
+    "📖 Help"
 ])
 
 # ==================== TAB 1: PROCESS ====================
@@ -731,6 +732,112 @@ with tab5:
 
     except Exception as e:
         st.error(f"❌ Error loading change history: {e}")
+
+# ==================== TAB 6: HELP ====================
+with tab6:
+    st.header("📖 How to Use This App")
+
+    st.markdown("""
+    ## 🎯 Quick Start Guide
+
+    ### 1️⃣ Upload Your Database (Optional)
+    - **Sidebar:** Click "Upload New CSV File" to work with a different reporter list
+    - Or use the default database included
+    - Current active database shown in sidebar
+
+    ### 2️⃣ Configure Settings
+    **In Sidebar:**
+    - **Confidence Threshold:** Set minimum % for auto-update (default: 65%)
+    - **Batch Size:** How many reporters to process (1-50)
+    - **Start Row:** Which row to begin processing from
+
+    ### 3️⃣ Process Reporters
+    **"Process" Tab:**
+    1. Review your settings
+    2. Click **"▶️ Start Processing"**
+    3. Watch real-time progress for each reporter
+    4. Results auto-saved with backup
+
+    ### 4️⃣ Review Results
+    **"Review Queue" Tab:**
+    - See all reporters needing manual review (below threshold)
+    - Click source URLs to verify information
+    - Download CSV of review items
+
+    **"Statistics" Tab:**
+    - View processing metrics and charts
+    - See confidence distribution
+    - Track auto-update vs manual review rates
+
+    ### 5️⃣ View & Export Data
+    **"View Database" Tab:**
+    - See full database with all columns
+    - Filter by decision type, name, or confidence
+    - Download filtered or complete database
+
+    **"Change History" Tab:**
+    - Track all processing runs per reporter
+    - View timestamps and confidence scores over time
+    - See source URLs used for each decision
+    - Export change log
+
+    ---
+
+    ## 💡 Tips & Best Practices
+
+    ✅ **Start Small:** Test with 5-10 reporters first
+    ✅ **Check API Status:** Ensure both APIs are connected (sidebar)
+    ✅ **Review Thresholds:** 65% is balanced, adjust based on accuracy
+    ✅ **Source Verification:** Always check URLs for low-confidence results
+    ✅ **Batch Processing:** Process 10-50 reporters at a time for efficiency
+    ✅ **Regular Backups:** Backups auto-saved in `output/` folder
+
+    ---
+
+    ## 🔍 Understanding Results
+
+    | Confidence | Decision | Action |
+    |------------|----------|--------|
+    | **≥65%** | AUTO-UPDATE | ✅ Information automatically updated |
+    | **<65%** | MANUAL REVIEW | ⚠️ Requires human verification |
+
+    **What gets extracted:**
+    - Full Name (Hebrew & English)
+    - Current Job Title & Employer
+    - Contact Email & Phone
+    - Professional Topics/Beats
+    - Source URLs for verification
+
+    ---
+
+    ## ⚡ Keyboard Shortcuts
+
+    - **Ctrl/Cmd + Click** tab → Open in new window
+    - Use **filters** in "View Database" for quick searches
+    - **Search bar** in "Change History" to find specific reporters
+
+    ---
+
+    ## 🆘 Troubleshooting
+
+    **Problem:** No results found
+    **Solution:** Check reporter name spelling, try processing again
+
+    **Problem:** Low confidence scores
+    **Solution:** Check if reporter is public figure with online presence
+
+    **Problem:** API errors
+    **Solution:** Verify API keys in Streamlit Cloud secrets
+
+    **Problem:** Upload failed
+    **Solution:** Ensure CSV is UTF-8 encoded with Hebrew support
+
+    ---
+
+    ## 📞 Support
+
+    For issues or questions, contact your administrator or check the GitHub repository.
+    """)
 
 # Footer
 st.markdown("---")
