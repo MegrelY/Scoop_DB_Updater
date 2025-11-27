@@ -28,13 +28,13 @@ workflow_status:
     name: "Discovery"
     workflows:
       - id: "brainstorm-project"
-        status: "required"
+        status: "docs/brainstorming-session-results-2025-11-23.md"
         agent: "analyst"
         command: "/bmad:bmm:workflows:brainstorm-project"
         description: "Creative exploration and ideation for database updater approach"
 
       - id: "product-brief"
-        status: "required"
+        status: "skipped"
         agent: "analyst"
         command: "/bmad:bmm:workflows:product-brief"
         description: "Strategic product planning - define vision and success metrics"
@@ -44,7 +44,7 @@ workflow_status:
     name: "Planning"
     workflows:
       - id: "prd"
-        status: "required"
+        status: "docs/prd.md"
         agent: "pm"
         command: "/bmad:bmm:workflows:prd"
         description: "Product Requirements Document with FRs and NFRs"
